@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
@@ -15,9 +17,25 @@ public class ProductService {
         return products;
     }
 
+    public Optional<Product> getProductById(Long id) {
+        return products.stream()
+                .filter(product -> product.getId().equals(id))
+                .findFirst();
+    }
+
     public Product addProduct(Product product) {
         product.setId(nextId++);
         products.add(product);
         return product;
+    }
+
+    public void deleteProduct(Long id) {
+        products.removeIf(product -> product.getId().equals(id));
+    }
+
+    public List<Product> findByName(String name) {
+        return products.stream()
+                .filter(product -> product.getName().toLowerCase().contains(name.toLowerCase()))
+                .collect(Collectors.toList());
     }
 }
