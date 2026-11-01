@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * This is the entry point of the Spring Boot application.
  * Run this class (green Run button / Shift+F10) to start the embedded
- * web server on http://localhost:8080
+ * web server on http://localhost:8081
  */
 
 @SpringBootApplication
