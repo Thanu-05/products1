@@ -1,33 +1,59 @@
 @startuml
+
+title Product API - Tutorial 4 Inheritance Hierarchy
+
 class Product {
-- id : Long
-- name : String
-- price : double
-+ getId() : Long
-+ getName() : String
-+ getPrice() : double
-+ setId(id : Long) : void
-+ setName(name : String) : void
-+ setPrice(price : double) : void
+    - id : Long
+    - name : String
+    - price : double
+    + getId() : Long
+    + getName() : String
+    + getPrice() : double
+    + setId(id : Long) : void
+    + setName(name : String) : void
+    + setPrice(price : double) : void
 }
+
+class DigitalProduct {
+    - downloadUrl : String
+    - fileSizeMB : double
+    + getDownloadUrl() : String
+    + getFileSizeMB() : double
+}
+
+class PhysicalProduct {
+    - weightKg : double
+    - dimensions : String
+    + getWeightKg() : double
+    + getDimensions() : String
+}
+
 class ProductService {
-- products : List<Product>
-- nextId : Long
-+ getAllProducts() : List<Product>
-+ getProductById(id : Long) : Optional<Product>
-+ addProduct(product : Product) : Product
-+ deleteProduct(id : Long) : void
-+ findByName(name : String) : List<Product>
+    - products : List<Product>
+    - nextId : Long
+    + getAllProducts() : List<Product>
+    + getProductById(id : Long) : Optional<Product>
+    + addProduct(product : Product) : Product
+    + deleteProduct(id : Long) : void
+    + findByName(name : String) : List<Product>
 }
+
 class ProductController {
-- productService : ProductService
-+ getAllProducts() : List<Product>
-+ getProductById(id : Long) : Product
-+ addProduct(product : Product) : Product
-+ deleteProduct(id : Long) : void
+    - productService : ProductService
+    + getAllProducts() : List<Product>
+    + getProductById(id : Long) : Product
+    + addProduct(product : Product) : Product
+    + deleteProduct(id : Long) : void
 }
-' ..> is a dependency: DASHED line, open arrow
+
+' Tutorial 4 - Inheritance relationships
+Product <|-- DigitalProduct
+Product <|-- PhysicalProduct
+
+' Tutorial 3 - Dependency relationship
 ProductController ..> ProductService
-' --> is an association: SOLID line
+
+' Tutorial 3 - Association relationship
 ProductService --> Product
+
 @enduml
