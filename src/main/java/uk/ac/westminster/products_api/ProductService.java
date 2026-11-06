@@ -34,6 +34,14 @@ public class ProductService {
         return products;
     }
 
+    public List<String> getAllSummaries() {
+        List<String> summaries = new ArrayList<>();
+        for (Product p : products) {
+            summaries.add(p.getSummary());
+        }
+        return summaries;
+    }
+
     public Optional<Product> getProductById(Long id) {
         return products.stream()
                 .filter(product -> product.getId().equals(id))
