@@ -6,8 +6,10 @@ public class PhysicalProduct extends Product implements Discountable{
     // HAS-A: PhysicalProduct has a weight and dimensions.
     private double weightKg;
     private String dimension;
+
     private double discountedPrice;
     //empty no-args constructor
+
     public PhysicalProduct(){}
 
     //constructors

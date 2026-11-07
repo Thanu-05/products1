@@ -20,8 +20,12 @@ public abstract class Product {
     public void setName(String name) { this.name = name; }
     public void setPrice(double price) { this.price = price; }
 
-
     public abstract String getSummary();
+
+//    public  String getSummary(){
+//        return getName() + " - $" + getPrice();
+//    }
+
 
 }
 

@@ -17,8 +17,8 @@ public class ProductService {
 
         // Add DigitalProduct
         products.add(new DigitalProduct(
-                1L, "Java Ebook", 500.0,
-                "https://example.com/java.pdf", 15.5
+                1L, "Thanu Ebook", 500.0,
+                "https://example.com/Thanu.pdf", 15.5
         ));
 
         // Add PhysicalProduct
